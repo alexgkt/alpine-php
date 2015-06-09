@@ -18,7 +18,7 @@ ADD conf/php-fpm.conf /etc/php/
 ADD nginx /etc/services.d/nginx/
 ADD php-fpm /etc/services.d/php-fpm/
 
+ADD www /app/www
+
 EXPOSE 80
 VOLUME ["/app"]
-
-CMD ["/init"]
