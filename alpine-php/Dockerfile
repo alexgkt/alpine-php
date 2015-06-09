@@ -1,6 +1,8 @@
 FROM justcontainers/base-alpine
 MAINTAINER Alex Goh <alex.goh@commercecraft.com.my>
 
+VOLUME ["/app"]
+
 RUN echo http://dl-4.alpinelinux.org/alpine/edge/main > /tmp/new_repo && \
     apk add --update --repositories-file /tmp/new_repo -u \
     musl nginx ca-certificates curl \
@@ -21,4 +23,3 @@ ADD php-fpm /etc/services.d/php-fpm/
 ADD www /app/www
 
 EXPOSE 80
-VOLUME ["/app"]
