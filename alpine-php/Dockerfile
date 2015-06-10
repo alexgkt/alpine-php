@@ -1,7 +1,7 @@
 FROM justcontainers/base-alpine
 MAINTAINER Alex Goh <alex.goh@commercecraft.com.my>
 
-VOLUME ["/app"]
+EXPOSE["/app/www", "/app/logs"]
 
 RUN echo http://dl-4.alpinelinux.org/alpine/edge/main > /tmp/new_repo && \
     apk add --update --repositories-file /tmp/new_repo -u \
