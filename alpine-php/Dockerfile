@@ -20,6 +20,6 @@ ADD php-fpm /etc/services.d/php-fpm/
 
 ADD www /app/www
 
-VOLUME /app/www /app/logs
+#VOLUME /app/www /app/logs
 
 EXPOSE 80
