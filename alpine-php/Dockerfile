@@ -21,8 +21,8 @@ ADD php-fpm /etc/services.d/php-fpm/
 ENV USER app
 ENV UID 1001
 
-RUN adduser -h /app -G www-data -u ${UID} ${USER} && \
-    setfacl -m g:www-data:rwx /app
+RUN adduser -D -h /app/www -G www-data -u ${UID} ${USER} && \
+    setfacl -m g:www-data:rwx /app/www
 
 ADD www /app/www
 
