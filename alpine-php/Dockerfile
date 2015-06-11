@@ -18,13 +18,13 @@ ADD conf/php-fpm.conf /etc/php/
 ADD nginx /etc/services.d/nginx/
 ADD php-fpm /etc/services.d/php-fpm/
 
+ADD www /app/www
+
 ENV USER app
 ENV UID 1001
 
 RUN adduser -D -h /app/www -G www-data -u ${UID} ${USER} && \
     setfacl -m g:www-data:rwx /app/www
-
-ADD www /app/www
 
 VOLUME /app/www
 
