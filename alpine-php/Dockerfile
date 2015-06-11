@@ -10,7 +10,7 @@ RUN echo http://dl-4.alpinelinux.org/alpine/edge/main > /tmp/new_repo && \
     rm -rf /var/cache/apk/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN mkdir -p /tmp/nginx && chown nginx /tmp/nginx
+RUN mkdir -p /tmp/nginx && chown nginx /tmp/nginx && mkdir /var/log/php-fpm
 
 ADD conf/nginx.conf /etc/nginx/
 ADD conf/php-fpm.conf /etc/php/
