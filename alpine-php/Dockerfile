@@ -24,11 +24,11 @@ ENV APP_USER app
 ENV APP_PASS password1234##
 ENV APP_UID 1001
 
-#RUN adduser -D -h /app/www -G www-data -u ${APP_UID} ${APP_USER} && \
-#    echo "${APP_USER}:${APP_PASS}" | chpasswd && \
-#    chown -R ${APP_USER}:www-data /app/www && \
-#    chmod -R g+rwx /app/www && \
-#    setfacl -m g:www-data:rwx /app/www
+RUN adduser -D -h /app/www -G www-data -u ${APP_UID} ${APP_USER} && \
+    echo "${APP_USER}:${APP_PASS}" | chpasswd && \
+    chown -R ${APP_USER}:www-data /app/www && \
+    chmod -R g+rwx /app/www && \
+    setfacl -m g:www-data:rwx /app/www
 
 VOLUME /app/www
 
