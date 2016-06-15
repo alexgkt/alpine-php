@@ -29,7 +29,7 @@ RUN apk add --update tzdata && \
 	php5-mcrypt && \
     apk del tzdata && \
     rm -rf /var/cache/apk/* && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
     #usermod -u 1000 www-data
 
 ADD conf/nginx.conf /etc/nginx/
