@@ -10,7 +10,6 @@ RUN apk update && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk add --update \
-	curl \
 	nginx \
    	php-fpm \
 	php-opcache \
@@ -31,8 +30,6 @@ RUN apk update && \
 	php-mcrypt && \
     rm -rf /var/cache/apk/* && \
     apk del tzdata && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-    mkdir -p /tmp/nginx && chown nginx /tmp/nginx && mkdir /var/log/php-fpm
 
 ADD conf/nginx.conf /etc/nginx/
 ADD conf/php-fpm.conf /etc/php/
