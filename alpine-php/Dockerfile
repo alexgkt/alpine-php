@@ -4,7 +4,9 @@ MAINTAINER Alex Goh <alex.goh@commercecraft.com.my>
 # Environments
 ENV TIMEZONE	Asia/Kuala_Lumpur
 
-RUN apk add --update tzdata && \
+RUN apk update && \
+    apk upgrage && \
+    apk add --update tzdata && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk add --update \
@@ -19,7 +21,7 @@ RUN apk add --update tzdata && \
 	php-zlib \
 	php-curl \
 	php-pdo \
-	hp-phar \
+	php-phar \
 	php-openssl \
     	php-pdo_mysql \
 	php-mysqli \
