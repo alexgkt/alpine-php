@@ -4,9 +4,7 @@ MAINTAINER Alex Goh <alex.goh@commercecraft.com.my>
 # Environments
 ENV TIMEZONE	Asia/Kuala_Lumpur
 
-RUN apk update && \
-    apk upgrade && \
-    apk add --update tzdata && \
+RUN apk add --update tzdata && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk add --update \
