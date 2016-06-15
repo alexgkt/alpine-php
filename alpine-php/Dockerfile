@@ -8,7 +8,7 @@ RUN apk add --update tzdata && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk add --update \
-	acl \
+	curl \
 	nginx \
    	php5-fpm \
 	php5-opcache \
