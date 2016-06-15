@@ -9,23 +9,23 @@ RUN apk add --update tzdata && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk add --update \
 	nginx \
-   	php-fpm \
-	php-opcache \
-	php-apcu \
-	php-ctype \
-	php-json \
-	php-xml \
-	php-xmlreader \
-	php-zlib \
-	php-curl \
-	php-pdo \
-	php-phar \
-	php-openssl \
-    	php-pdo_mysql \
-	php-mysqli \
-    	php-gd \	
-	php-iconv \
-	php-mcrypt && \
+   	php5-fpm \
+	php5-opcache \
+	php5-apcu \
+	php5-ctype \
+	php5-json \
+	php5-xml \
+	php5-xmlreader \
+	php5-zlib \
+	php5-curl \
+	php5-pdo \
+	php5-phar \
+	php5-openssl \
+    	php5-pdo_mysql \
+	php5-mysqli \
+    	php5-gd \	
+	php5-iconv \
+	php5-mcrypt && \
     rm -rf /var/cache/apk/* && \
     apk del tzdata && \
 
