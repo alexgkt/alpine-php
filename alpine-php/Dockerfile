@@ -26,8 +26,8 @@ RUN apk add --update tzdata && \
     	php5-gd \	
 	php5-iconv \
 	php5-mcrypt && \
-    rm -rf /var/cache/apk/* && \
     apk del tzdata && \
+    rm -rf /var/cache/apk/*
 
 ADD conf/nginx.conf /etc/nginx/
 ADD conf/php-fpm.conf /etc/php/
