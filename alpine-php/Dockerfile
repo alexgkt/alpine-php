@@ -25,8 +25,8 @@ RUN apk add --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edg
 	php5-mysqli \
     	php5-gd \	
 	php5-iconv \
+	php5-bcmath && \
 	php5-mcrypt && \
-        php5-bcmath && \
 	#php-redis && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
