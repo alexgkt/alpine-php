@@ -5,6 +5,7 @@ MAINTAINER Alex Goh <alex.goh@commercecraft.com.my>
 ENV TIMEZONE	Asia/Kuala_Lumpur
 
 RUN apk add --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
+	openssl \
 	tzdata \
 	curl \
 	nginx \
@@ -25,13 +26,15 @@ RUN apk add --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edg
     	php5-gd \	
 	php5-iconv \
 	php5-mcrypt && \
+        php5-bcmath && \
 	#php-redis && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk del tzdata && \
     rm -rf /var/cache/apk/*
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    composer global require "hirak/prestissimo:^0.3"
     #cp /etc/php/conf.d/redis.ini /etc/php5/conf.d && \
     #cp /usr/lib/php/modules/redis.so /usr/lib/php5/modules/redis.so && \
     #rm -rf /etc/php && \
